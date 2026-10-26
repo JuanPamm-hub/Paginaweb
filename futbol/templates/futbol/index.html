@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mi Plantilla de Fútbol</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'futbol/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Plantilla del Equipo ⚽</h1>
+        <ul>
+            {% for j in jugadores %}
+                <li><strong>{{ j.nombre }}</strong> - {{ j.posicion }} (Dorsal: {{ j.dorsal }})</li>
+            {% empty %}
+                <li>No hay jugadores registrados todavía. Entra al panel de administración para agregarlos.</li>
+            {% endfor %}
+        </ul>
+        <a href="/admin/" class="btn">Ir al Admin</a>
+    </div>
+</body>
+</html>
